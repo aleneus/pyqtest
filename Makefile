@@ -3,6 +3,7 @@ MODULE = pyqtest.py
 help:
 	@echo "check"
 	@echo "lint"
+	@echo "upload"
 
 check: test flake todo lint-e
 
@@ -20,3 +21,7 @@ todo:
 
 lint:
 	pylint $(MODULE) || true
+
+upload:
+	python3 setup.py sdist
+	python3 -m twine upload --repository pypi dist/*

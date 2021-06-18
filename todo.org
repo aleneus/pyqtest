@@ -1,0 +1,7 @@
+* 0.1.1
+** DONE docs: add README.md
+* later
+** TODO ref: widget testing: extract asker
+** TODO docs: add sphinx documentation
+** TODO docs: add release checklist
+** TODO docs: add CHANGELOG.txt

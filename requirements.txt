@@ -1,0 +1,8 @@
+flake8
+jedi
+nose2
+nose2-cov
+pylint
+yapf
+pyqt5
+twine

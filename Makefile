@@ -5,7 +5,7 @@ help:
 	@echo "lint"
 	@echo "upload"
 
-check: test flake todo lint-e
+check: test flake fixme lint-e
 
 test:
 	nose2
@@ -16,8 +16,19 @@ flake:
 lint-e:
 	pylint --disable=R,C,W $(MODULE) || true
 
-todo:
-	@rgrep "TODO" --include="*py" || true
+fixme:
+	@rgrep "TODO" -n \
+		--include="*py" \
+		--include="*rst"\
+		--exclude="release-checklist.md"\
+		--exclude-dir=env \
+		--exclude-dir=wenv \
+		|| true
+
+	@rgrep "# REF" -n \
+		--include="*py" \
+		--exclude="release-checklist.md" \
+		|| true
 
 lint:
 	pylint $(MODULE) || true

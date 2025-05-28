@@ -1,4 +1,4 @@
-# Copyright (C) 2021-2022 Aleksandr Popov
+# Copyright (C) 2021-2025 Aleksandr Popov
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the Lesser GNU General Public License as published by
@@ -15,10 +15,10 @@
 """The tool for visual testing of widgets."""
 
 import sys
-from PyQt5 import QtWidgets
-from PyQt5.QtCore import Qt
+from qtpy import QtWidgets
+from qtpy.QtCore import Qt
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 
 
 class TestApp:

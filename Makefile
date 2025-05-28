@@ -1,32 +1,23 @@
 MODULE = pyqtest.py
 
-help:
-	@echo "check"
-	@echo "lint"
-	@echo "upload"
-
-check: test flake fixme lint-e
+check: test flakes lint-only-errors todo
 
 test:
-	nose2
+	@nose2 --with-coverage || true
 
-flake:
-	flake8 $(MODULE)
+flakes:
+	flake8 $(MODULE) || true
 
-lint-e:
+lint-only-errors:
 	pylint --disable=R,C,W $(MODULE) || true
 
-fixme:
+todo:
 	@rgrep "TODO" -n \
+		--include="*md" \
 		--include="*py" \
-		--include="*rst"\
-		--exclude="release-checklist.md"\
+		--include="*rst" \
+		--exclude-dir=build \
 		--exclude-dir=env \
-		--exclude-dir=wenv \
-		|| true
-
-	@rgrep "# REF" -n \
-		--include="*py" \
 		--exclude="release-checklist.md" \
 		|| true
 

@@ -1,8 +1,7 @@
 flake8
-jedi
+mypy
 nose2
 nose2-cov
 pylint
+python-lsp-server[all]
 yapf
-pyqt5
-twine
